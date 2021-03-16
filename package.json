@@ -5,21 +5,24 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpackConfig/webpackProd.js",
-    "start": "webpack-dev-server --open --config webpackConfig/webpackDev.js"
+    "start": "webpack serve --open --config webpackConfig/webpackDev.js --mode development --env development",
+    "test": "jasmine"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "css-loader": "^5.0.1",
     "file-loader": "^6.2.0",
-    "gsap": "^3.5.1",
-    "html-webpack-plugin": "^4.5.0",
-    "ramda": "^0.27.1",
+    "html-webpack-plugin": "^5.3.1",
+    "lodash": "^4.17.21",
     "style-loader": "^2.0.0",
-    "three": "^0.122.0",
-    "webpack": "^5.6.0",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0",
-    "webpack-merge": "^5.4.0"
+    "ts-loader": "^8.0.18",
+    "typescript": "^4.2.3",
+    "webpack": "^5.26.0",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.7.3"
+  },
+  "dependencies": {
+    "jasmine": "^3.6.4"
   }
 }
