@@ -1,21 +1,31 @@
-import { Hero } from './Hero';
-import { Enemy } from './Enemy';
-import { MAX_CARDS } from '../constants/constants';
-import { getCargds } from './CardsManager'
+const Enemy1 = require('./Enemy');
+const Hero1 = require('./Hero');
+const conf = require('../constants/constants');
+const cardsManager = require('./CardsManager');
 
 
 
-export class Logic {
-    _hero: Hero;
+const { START_HERO_CONFIG } = conf;
+
+
+
+module.exports = class {
+
+
+    _hero: typeof Hero1;
     _countBattle: number;
 
-    constructor () {
-        this._hero = new Hero() 
-        const cards = getCargds(MAX_CARDS)
-        this._hero.addCards(cards)
-        this._countBattle = -1
 
-        this._startIterate()
+    constructor () {
+        this._hero = new Hero1(START_HERO_CONFIG);
+        const cards = cardsManager.getCargds(START_HERO_CONFIG._startCountCards);
+        this._hero.addCards(cards);
+        this._countBattle = -1;
+    }
+
+
+    start () {
+        this._startIterate();
     }
 
 
@@ -24,17 +34,18 @@ export class Logic {
             ++this._countBattle;
             this._fight(this._countBattle, next);
         };
-        next()
+        next();
     }
 
+
     _fight (countBattle: number, callback: () => void ): void {
-        const enemyCards = getCargds(countBattle)
-        const enemy = new Enemy(countBattle, enemyCards);
+        const enemyCards = cardsManager.getCargds(countBattle);
+        const enemy = new Enemy1(countBattle, enemyCards);
 
         debugger;
         setTimeout(callback, 3000);
     }
-}
+};
 
 
 

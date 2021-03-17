@@ -1,4 +1,4 @@
-export class Enemy {
+ module.exports = class {
     _level: number;
     _health: number;
     _isDie: boolean;
