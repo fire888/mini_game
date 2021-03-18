@@ -8,5 +8,6 @@
   ],
   "stopSpecOnExpectationFailure": false,
   "random": true,
-  "type": "module"
+  "type": "module",
+  "module": "commonjs"
 }
